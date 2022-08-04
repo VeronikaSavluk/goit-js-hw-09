@@ -8,11 +8,13 @@ stopBtn.addEventListener('click', onStopBtnClick);
 
 function onStartBtnClick(event) {
     startBtn.disabled = true;
+    stopBtn.disabled = false;
     timerChangeColorBody = setInterval(function() { body.style.backgroundColor = getRandomHexColor() }, 1000);
 };
 
 function onStopBtnClick(event) {
     startBtn.disabled = false;
+    stopBtn.disabled = true;
     clearInterval(timerChangeColorBody);
 };
 console.log(body);
