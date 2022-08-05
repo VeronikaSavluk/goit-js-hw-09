@@ -17,9 +17,8 @@ function onStopBtnClick(event) {
     stopBtn.disabled = true;
     clearInterval(timerChangeColorBody);
 };
-console.log(body);
 
 function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
+};
 
