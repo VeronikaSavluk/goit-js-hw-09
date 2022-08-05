@@ -22,11 +22,31 @@ const options = {
 
 flatpickr("#datetime-picker", options);
 const inputEl = document.querySelector("#datetime-picker")._flatpickr;
-let timer = null;
+const timerEl = document.querySelector(".timer");
+const timerValueBoxes = document.querySelectorAll(".field");
+const timerValueSpans = document.querySelectorAll("span.value");
+const timerLabelSpans = document.querySelectorAll("span.label");
 const boxOfDays = document.querySelector("span[data-days]");
 const boxOfHours = document.querySelector("span[data-hours]");
 const boxOfMinutes = document.querySelector("span[data-minutes]");
 const boxOfSeconds = document.querySelector("span[data-seconds]");
+let timer = null;
+
+timerEl.style.display = "flex";
+for (let i = 1; i < timerValueBoxes.length; i += 1) {
+  timerValueBoxes[i].style.marginLeft = "15px";
+};
+timerValueSpans.forEach(span => {
+  span.style.display = "block";
+  span.style.textAlign = "center";
+  span.style.fontSize = "30px";
+  });
+timerLabelSpans.forEach(span => {
+  span.style.display = "block";
+  span.style.textAlign = "center";
+  span.style.fontSize = "12px";
+  span.style.textTransform = "uppercase";
+});
 
 function onStartBtnClick(event){
   startBtn.disabled = true;
