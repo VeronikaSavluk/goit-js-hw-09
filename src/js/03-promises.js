@@ -8,10 +8,15 @@ function onInputEvent(e) {
   let delay = Number.parseFloat(form.delay.value);
   const step = Number.parseFloat(form.step.value);
   const amount = Number.parseFloat(form.amount.value);
-  for (let i = 1; i <= amount; i += 1) {
-    createPromise(i, delay);
-    delay += step;
-  };
+
+  if (delay >= 0 && step >= 0 && amount > 0) {
+    for (let i = 1; i <= amount; i += 1) {
+      createPromise(i, delay);
+      delay += step;
+    };
+  } else {
+    Notiflix.Notify.failure("Please, enter valid values.");
+  }
 };
 form.addEventListener("submit", onInputEvent);
 
